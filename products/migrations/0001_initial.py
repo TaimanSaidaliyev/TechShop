@@ -8,75 +8,236 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Brand',
+            name="Brand",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(blank=True, max_length=100, verbose_name='Название бренда')),
-                ('description', models.TextField(blank=True, max_length=1000, verbose_name='Описание бренда')),
-                ('image', models.ImageField(blank=True, upload_to='media/categories/%Y/%m/%d', verbose_name='Изображение')),
-                ('created_at', models.DateField(auto_now_add=True, null=True, verbose_name='Дата создания')),
-                ('updated_at', models.DateField(auto_now=True, null=True, verbose_name='Дата обновления')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="Название бренда"
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(
+                        blank=True, max_length=1000, verbose_name="Описание бренда"
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True,
+                        upload_to="media/categories/%Y/%m/%d",
+                        verbose_name="Изображение",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateField(
+                        auto_now_add=True, null=True, verbose_name="Дата создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateField(
+                        auto_now=True, null=True, verbose_name="Дата обновления"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Бренды',
-                'verbose_name_plural': 'Бренды',
-                'ordering': ['created_at'],
+                "verbose_name": "Бренды",
+                "verbose_name_plural": "Бренды",
+                "ordering": ["created_at"],
             },
         ),
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(blank=True, max_length=100, verbose_name='Название категории')),
-                ('description', models.TextField(blank=True, max_length=1000, verbose_name='Описание категории')),
-                ('image', models.ImageField(blank=True, upload_to='media/categories/%Y/%m/%d', verbose_name='Изображение')),
-                ('created_at', models.DateField(auto_now_add=True, null=True, verbose_name='Дата создания')),
-                ('updated_at', models.DateField(auto_now=True, null=True, verbose_name='Дата обновления')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="Название категории"
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(
+                        blank=True, max_length=1000, verbose_name="Описание категории"
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True,
+                        upload_to="media/categories/%Y/%m/%d",
+                        verbose_name="Изображение",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateField(
+                        auto_now_add=True, null=True, verbose_name="Дата создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateField(
+                        auto_now=True, null=True, verbose_name="Дата обновления"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Категории',
-                'verbose_name_plural': 'Категории',
-                'ordering': ['created_at'],
+                "verbose_name": "Категории",
+                "verbose_name_plural": "Категории",
+                "ordering": ["created_at"],
             },
         ),
         migrations.CreateModel(
-            name='Colours',
+            name="Colours",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(blank=True, max_length=100, verbose_name='Цвет')),
-                ('html_color', models.CharField(blank=True, max_length=7, verbose_name='HTML цвет')),
-                ('image', models.ImageField(blank=True, upload_to='media/categories/%Y/%m/%d', verbose_name='Изображение')),
-                ('created_at', models.DateField(auto_now_add=True, null=True, verbose_name='Дата создания')),
-                ('updated_at', models.DateField(auto_now=True, null=True, verbose_name='Дата обновления')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(blank=True, max_length=100, verbose_name="Цвет"),
+                ),
+                (
+                    "html_color",
+                    models.CharField(
+                        blank=True, max_length=7, verbose_name="HTML цвет"
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True,
+                        upload_to="media/categories/%Y/%m/%d",
+                        verbose_name="Изображение",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateField(
+                        auto_now_add=True, null=True, verbose_name="Дата создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateField(
+                        auto_now=True, null=True, verbose_name="Дата обновления"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Бренды',
-                'verbose_name_plural': 'Бренды',
-                'ordering': ['created_at'],
+                "verbose_name": "Бренды",
+                "verbose_name_plural": "Бренды",
+                "ordering": ["created_at"],
             },
         ),
         migrations.CreateModel(
-            name='Products',
+            name="Products",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(blank=True, max_length=100, verbose_name='Название товара')),
-                ('description', models.TextField(blank=True, max_length=1000, verbose_name='Описание товара')),
-                ('created_at', models.DateField(auto_now_add=True, null=True, verbose_name='Дата создания')),
-                ('updated_at', models.DateField(auto_now=True, null=True, verbose_name='Дата обновления')),
-                ('image', models.ImageField(blank=True, upload_to='media/products/%Y/%m/%d', verbose_name='Изображение')),
-                ('brand', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.PROTECT, to='products.brand', verbose_name='Категория товара')),
-                ('category', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.PROTECT, to='products.category', verbose_name='Категория товара')),
-                ('html_color', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.PROTECT, to='products.colours', verbose_name='Категория товара')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="Название товара"
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(
+                        blank=True, max_length=1000, verbose_name="Описание товара"
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateField(
+                        auto_now_add=True, null=True, verbose_name="Дата создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateField(
+                        auto_now=True, null=True, verbose_name="Дата обновления"
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True,
+                        upload_to="media/products/%Y/%m/%d",
+                        verbose_name="Изображение",
+                    ),
+                ),
+                (
+                    "brand",
+                    models.ForeignKey(
+                        blank=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="products.brand",
+                        verbose_name="Категория товара",
+                    ),
+                ),
+                (
+                    "category",
+                    models.ForeignKey(
+                        blank=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="products.category",
+                        verbose_name="Категория товара",
+                    ),
+                ),
+                (
+                    "html_color",
+                    models.ForeignKey(
+                        blank=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="products.colours",
+                        verbose_name="Категория товара",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Товары',
-                'verbose_name_plural': 'Товары',
-                'ordering': ['created_at'],
+                "verbose_name": "Товары",
+                "verbose_name_plural": "Товары",
+                "ordering": ["created_at"],
             },
         ),
     ]
