@@ -2,14 +2,14 @@ from rest_framework import serializers
 from .models import *
 
 
-class ProductListSerializer(serializers.ModelSerializer):
+class ShopDetailSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Products
+        model = Shop
         fields = ('__all__')
         depth = 3
 
 
-class ProductListSerializerPost(serializers.ModelSerializer):
+class ShopPostSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Products
+        model = Shop
         fields = ('__all__')

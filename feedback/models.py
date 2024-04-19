@@ -1,6 +1,7 @@
 from django.db import models
 
 from products.models import Products
+from django.contrib.auth.models import User
 
 
 class Feedback(models.Model):
@@ -20,6 +21,9 @@ class Feedback(models.Model):
     )
     updated_at = models.DateField(
         auto_now=True, blank=True, null=True, verbose_name="Дата обновления"
+    )
+    user = models.ForeignKey(
+        User, blank=True, null=True, on_delete=models.PROTECT, verbose_name='Автор отзыва'
     )
 
     class Meta:

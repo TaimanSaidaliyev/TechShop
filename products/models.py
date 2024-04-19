@@ -56,7 +56,7 @@ class Products(models.Model):
     updated_at = models.DateField(auto_now=True, blank=True, null=True, verbose_name='Дата обновления')
     category = models.ForeignKey(Category, blank=True, on_delete=models.PROTECT, verbose_name='Категория товара')
     html_color = models.ForeignKey(Colours, blank=True, on_delete=models.PROTECT, verbose_name='Цвет')
-    brand = models.ForeignKey(Brand, blank=True, on_delete=models.PROTECT, verbose_name='Категория товара')
+    brand = models.ForeignKey(Brand, blank=True, on_delete=models.PROTECT, verbose_name='Бренд>')
     image = models.ImageField(upload_to='media/products/%Y/%m/%d', blank=True, verbose_name='Изображение')
 
     class Meta:
