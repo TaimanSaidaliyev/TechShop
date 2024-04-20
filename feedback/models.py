@@ -23,7 +23,11 @@ class Feedback(models.Model):
         auto_now=True, blank=True, null=True, verbose_name="Дата обновления"
     )
     user = models.ForeignKey(
-        User, blank=True, null=True, on_delete=models.PROTECT, verbose_name='Автор отзыва'
+        User,
+        blank=True,
+        null=True,
+        on_delete=models.PROTECT,
+        verbose_name="Автор отзыва",
     )
 
     class Meta:
