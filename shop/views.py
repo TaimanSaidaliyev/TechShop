@@ -14,7 +14,7 @@ class ShopListView(APIView):
 
 
 class ShopSearchList(APIView):
-    def get(self, request, shop_id):
+    def get(self, request):
         categories_ids = request.query_params.get('category_ids')
         shops = Shop.objects.all()
 
@@ -28,12 +28,12 @@ class ShopSearchList(APIView):
 
 class ShopById(APIView):
     def get(self, request, shop_id):
-        shop = Shop.objects.filter(pk=shop_id).first()
+        shop = Shop.objects.get(pk=shop_id)
 
         if not shop:
             return Response({'error': 'ID продукта не найден'}, status=status.HTTP_404_NOT_FOUND)
 
-        serializer = ShopDetailSerializer(shop_id)
+        serializer = ShopDetailSerializer(shop, many=False)
 
         return Response(
             serializer.data,

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from shop.models import *
 
 
 class Role(models.Model):
@@ -19,6 +20,8 @@ class Person(models.Model):
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.PROTECT, verbose_name='Пользователь')
     telephone = models.CharField(max_length=100, blank=True, verbose_name='Телефон')
     role = models.ForeignKey(Role, blank=True, null=True, on_delete=models.PROTECT, verbose_name='Роль')
+    shop = models.ForeignKey(Shop, blank=True, null=True, on_delete=models.PROTECT, verbose_name='Магазин',
+                             related_name='get_shop_person')
 
     class Meta:
         verbose_name = 'Персона'

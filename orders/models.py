@@ -25,6 +25,9 @@ class OrderCart(models.Model):
     created_at = models.DateField(auto_now_add=True, blank=True, null=True, verbose_name="Дата создания")
     updated_at = models.DateField(auto_now=True, blank=True, null=True, verbose_name="Дата обновления")
     delivery_date = models.DateField(blank=True, null=True, verbose_name="Дата доставки")
+    fullname = models.CharField(max_length=100, blank=True, verbose_name='ФИО')
+    telephone = models.CharField(max_length=100, blank=True, verbose_name='Номер телефона')
+    address = models.CharField(max_length=100, blank=True, verbose_name='Адрес доставки')
 
     class Meta:
         verbose_name = "Заказы"

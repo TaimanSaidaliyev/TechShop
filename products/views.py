@@ -17,13 +17,23 @@ class ProductSearchList(APIView):
     def get(self, request):
         categories_ids = request.query_params.get('category_ids')
         shops_ids = request.query_params.get('shops_ids')
-        products = Products.objects.all()
+        products = Products.objects.all().order_by('-pk')
+
+        page = int(request.query_params.get('page'))
+        count = int(request.query_params.get('count'))
+        text_field = request.query_params.get('text_field')
+
+        if page:
+            products = products[(page - 1) * count:page * count]
+
+        if text_field:
+            products = Products.objects.filter(title__contains=text_field)
 
         if shops_ids:
             shops_ids = [int(id) for id in shops_ids.split(',')]
             products = Products.objects.filter(ordercart__shop__get_shop_product__in=shops_ids)
 
-        if(categories_ids):
+        if categories_ids:
             categories_ids = [int(id) for id in categories_ids.split(',')]
             products = products.filter(category_id__in=categories_ids)
 
@@ -85,4 +95,22 @@ class ProductById(APIView):
                 }, status=status.HTTP_400_BAD_REQUEST)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class CategoriesList(APIView):
+    def get(self, request):
+        categories = Category.objects.all()
+        return Response(CategorySerializer(categories, many=True).data)
+
+
+class BrandList(APIView):
+    def get(self, request):
+        brands = Brand.objects.all()
+        return Response(BrandSerializer(brands, many=True).data)
+
+
+class ColorList(APIView):
+    def get(self, request):
+        colors = Colours.objects.all()
+        return Response(ColorSerializer(colors, many=True).data)
 

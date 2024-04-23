@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Min
 
 
 class Category(models.Model):
@@ -58,6 +59,24 @@ class Products(models.Model):
     html_color = models.ForeignKey(Colours, blank=True, on_delete=models.PROTECT, verbose_name='Цвет')
     brand = models.ForeignKey(Brand, blank=True, on_delete=models.PROTECT, verbose_name='Бренд>')
     image = models.ImageField(upload_to='media/products/%Y/%m/%d', blank=True, verbose_name='Изображение')
+
+    def get_min_price_info(self):
+        price_data = self.get_product_shop.annotate(min_price=Min('price')).order_by('min_price').first()
+        if price_data:
+            return {
+                'min_price': price_data.price,
+                'shop_id': price_data.shop.id
+            }
+        return None
+
+    def get_min_new_price_info(self):
+        price_data = self.get_product_shop.annotate(min_new_price=Min('new_price')).order_by('min_new_price').first()
+        if price_data:
+            return {
+                'min_new_price': price_data.new_price,
+                'shop_id': price_data.shop.id
+            }
+        return None
 
     class Meta:
         verbose_name = 'Товары'
