@@ -1,4 +1,6 @@
-django
-djangorestframework
-Pillow
-django-cors-headers
+Django==5.0.1
+django-cors-headers==4.3.1
+djangorestframework==3.14.0
+Pillow==9.5.0
+djangorestframework-simplejwt
+djoser
